@@ -1,0 +1,85 @@
+:root {
+  --bg: #1b2a49;
+  --panel: #f6f1e7;
+  --ink: #1b2a49;
+  --x: #e4572e;
+  --o: #17a2b8;
+  --win: #ffd166;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+}
+
+.game {
+  width: min(380px, 94vw);
+  padding: 24px;
+  text-align: center;
+  background: var(--panel);
+  border-radius: 20px;
+}
+
+h1 { margin: 0 0 14px; font-size: 2rem; }
+
+.modes {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.mode, .restart {
+  padding: 8px 16px;
+  font: inherit;
+  font-weight: bold;
+  color: var(--ink);
+  background: transparent;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.mode.active { color: #fff; background: var(--ink); }
+
+#status { margin: 8px 0 14px; font-size: 1.15rem; min-height: 1.5em; }
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  font-size: 3rem;
+  font-weight: bold;
+  background: #fff;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.cell:hover:not(:disabled) { background: #ece6d6; }
+.cell:disabled { cursor: default; }
+.cell.x { color: var(--x); }
+.cell.o { color: var(--o); }
+.cell.win { background: var(--win); }
+
+.scores {
+  display: flex;
+  justify-content: space-around;
+  margin: 18px 0 14px;
+  font-size: 1.1rem;
+}
+
+.restart:hover, .mode:hover { background: var(--win); color: var(--ink); }
+
+button:focus-visible { outline: 3px solid var(--o); outline-offset: 2px; }
